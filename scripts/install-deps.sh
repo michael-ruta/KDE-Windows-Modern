@@ -16,7 +16,7 @@ if command -v dnf &>/dev/null; then
           kf6-kwindowsystem-devel kf6-kio-devel kf6-kiconthemes-devel kf6-kitemmodels-devel
           kf6-kservice-devel kf6-kxmlgui-devel kf6-kjobwidgets-devel kf6-kcmutils-devel
           kf6-knotifications-devel
-          libplasma-devel plasma-workspace-devel plasma-activities-devel libplasmaactivitiesstats-devel
+          libplasma-devel plasma-workspace-devel plasma-activities-devel plasma-activities-stats-devel
           libksysguard-devel)
 elif command -v pacman &>/dev/null; then
     pkgs=(kvantum flatpak gcc cmake extra-cmake-modules qt6-base qt6-declarative

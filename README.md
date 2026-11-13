@@ -303,7 +303,7 @@ sudo dnf install gcc-c++ cmake extra-cmake-modules \
   kf6-kpackage-devel kf6-kconfig-devel kf6-ki18n-devel kf6-kcoreaddons-devel \
   kf6-kwindowsystem-devel kf6-kio-devel kf6-kservice-devel kf6-kxmlgui-devel \
   kf6-knotifications-devel \
-  plasma-activities-devel libplasmaactivitiesstats-devel \
+  plasma-activities-devel plasma-activities-stats-devel \
   libplasma-devel plasma-workspace-devel \
   libksysguard-devel
 ```
