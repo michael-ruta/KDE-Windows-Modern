@@ -37,7 +37,9 @@ Item {
     Kirigami.Icon {
         id: buttonIcon
 
-        anchors.fill: parent
+        anchors.centerIn: parent
+        width: Math.min(24, parent.width - 12)
+        height: width
         source: useCustomButtonImage ? Plasmoid.configuration.customButtonImage : Plasmoid.configuration.icon
         active: mouseArea.containsMouse
         smooth: true

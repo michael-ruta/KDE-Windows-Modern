@@ -179,8 +179,8 @@ Item {
             readonly property int rowHeight: Kirigami.Units.gridUnit * 2
             readonly property int mainContentHeight: rowHeight * 12 + Kirigami.Units.gridUnit * 2
 
-            width: leftColumnWidth + rightColumnWidth + Kirigami.Units.gridUnit * 3
-            height: mainContentHeight + bottomBar.height + Kirigami.Units.gridUnit * 3
+            width: Math.min(620, kicker.screenGeometry.width - 24)
+            height: Math.min(560, kicker.screenGeometry.height - kicker.height - 24)
             focus: true
 
             // Note: do NOT auto-redirect to the search field here.
@@ -235,10 +235,10 @@ Item {
             // ── Two-column main content area ──────────────────────────────
             RowLayout {
                 id: mainColumns
-                anchors.top: parent.top
+                anchors.top: bottomBar.bottom
                 anchors.left: parent.left
                 anchors.right: parent.right
-                anchors.bottom: bottomBar.top
+                anchors.bottom: accountFooter.top
                 anchors.topMargin: Kirigami.Units.gridUnit
                 anchors.bottomMargin: Kirigami.Units.gridUnit
                 anchors.leftMargin: Kirigami.Units.gridUnit
@@ -291,6 +291,7 @@ Item {
                 // ── Vertical separator ───────────────────────────────────────
                 Rectangle {
                     id: columnSeparator
+                    visible: false
                     Layout.preferredWidth: 1
                     Layout.fillHeight: true
                     color: Kirigami.Theme.textColor
@@ -305,7 +306,7 @@ Item {
                     Layout.preferredWidth: rootItem.rightColumnWidth
                     Layout.rightMargin: Kirigami.Units.mediumSpacing
                     spacing: Kirigami.Units.smallSpacing
-                    visible: Plasmoid.configuration.showRightColumn
+                    visible: false
 
                     // ── User avatar (circular) ──────────────────────────────
                     Item {
@@ -377,8 +378,8 @@ Item {
                 id: bottomBar
                 width: parent.width
                 height: bottomBarContent.implicitHeight + Kirigami.Units.gridUnit
-                anchors.bottom: parent.bottom
-                anchors.bottomMargin: Kirigami.Units.gridUnit
+                anchors.top: parent.top
+                anchors.topMargin: Kirigami.Units.gridUnit
                 anchors.left: parent.left
                 anchors.leftMargin: Kirigami.Units.gridUnit
                 anchors.right: parent.right
@@ -397,6 +398,7 @@ Item {
 
                 BottomBar {
                     id: bottomBarContent
+                    showPowerButton: false
                     anchors.left: parent.left
                     anchors.right: parent.right
                     anchors.verticalCenter: parent.verticalCenter
@@ -439,6 +441,45 @@ Item {
                         powerMenu.open();
                     }
                     onPowerShutdownRequested: powerMenu.triggerShutdown()
+                }
+            }
+
+            Rectangle {
+                id: accountFooter
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.bottom: parent.bottom
+                height: 64
+                color: Qt.rgba(Kirigami.Theme.textColor.r, Kirigami.Theme.textColor.g, Kirigami.Theme.textColor.b, 0.035)
+                RowLayout {
+                    anchors.fill: parent
+                    anchors.leftMargin: 32
+                    anchors.rightMargin: 32
+                    spacing: 12
+                    Kirigami.Icon { source: "user-identity"; Layout.preferredWidth: 28; Layout.preferredHeight: 28 }
+                    PlasmaComponents3.Label { text: kuser.fullName || kuser.loginName; Layout.fillWidth: true }
+                    PlasmaComponents3.ToolButton {
+                        icon.name: "system-file-manager"
+                        text: i18n("Files")
+                        display: AbstractButton.IconOnly
+                        Accessible.name: text
+                        onClicked: { executable.exec("dolphin"); root.closeMenu(); }
+                    }
+                    PlasmaComponents3.ToolButton {
+                        icon.name: "settings-configure"
+                        text: i18n("Settings")
+                        display: AbstractButton.IconOnly
+                        Accessible.name: text
+                        onClicked: { executable.exec("systemsettings"); root.closeMenu(); }
+                    }
+                    PlasmaComponents3.ToolButton {
+                        id: footerPower
+                        icon.name: "system-shutdown"
+                        text: i18n("Power")
+                        display: AbstractButton.IconOnly
+                        Accessible.name: text
+                        onClicked: { powerMenu.visualParent = footerPower; powerMenu.open(); }
+                    }
                 }
             }
 

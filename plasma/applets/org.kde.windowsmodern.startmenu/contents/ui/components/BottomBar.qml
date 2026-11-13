@@ -21,6 +21,7 @@ RowLayout {
     spacing: Kirigami.Units.largeSpacing
     width: parent.width
 
+    property bool showPowerButton: true
     property alias searchText: searchFieldInput.text
 
     // The split button item, exposed so the shell can use it as the
@@ -50,7 +51,7 @@ RowLayout {
         id: searchFieldInput
         Layout.fillWidth: true
         focus: true
-        placeholderText: i18n("Search programs and files")
+        placeholderText: i18n("Search apps, settings, and documents")
         topPadding: 8
         bottomPadding: 8
         leftPadding: Kirigami.Units.gridUnit + Kirigami.Units.iconSizes.small
@@ -107,6 +108,7 @@ RowLayout {
     // chevron zone opens a menu with Lock / Sleep / Restart / Shut down.
     Item {
         id: shutdownSplit
+        visible: bottomBar.showPowerButton
         Layout.alignment: Qt.AlignVCenter
         implicitWidth: splitRow.implicitWidth + Kirigami.Units.largeSpacing * 2
         implicitHeight: Math.floor(Kirigami.Units.gridUnit * 1.6)

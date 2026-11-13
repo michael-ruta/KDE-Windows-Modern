@@ -6,6 +6,8 @@ the `Version` field shared by every component's metadata.
 
 ## Unreleased
 
+- Redesign the customization branch Start menu with a pinned grid, top search and account/power footer; reduce the panel Start icon to 24px.
+
 - Fix Debian/Ubuntu applet dependencies: use the packaged Plasma Activities development names and omit the unavailable dbusmenu-qt6 package (the tray embeds its implementation).
 
 ## [Unreleased]
