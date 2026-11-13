@@ -4,6 +4,10 @@ All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and versions follow
 the `Version` field shared by every component's metadata.
 
+## Unreleased
+
+- Fix Debian/Ubuntu applet dependencies: use the packaged Plasma Activities development names and omit the unavailable dbusmenu-qt6 package (the tray embeds its implementation).
+
 ## [Unreleased]
 
 ### Fixed

@@ -16,7 +16,7 @@ if command -v dnf &>/dev/null; then
           kf6-kwindowsystem-devel kf6-kio-devel kf6-kiconthemes-devel kf6-kitemmodels-devel
           kf6-kservice-devel kf6-kxmlgui-devel kf6-kjobwidgets-devel kf6-kcmutils-devel
           kf6-knotifications-devel
-          libplasma-devel plasma-workspace-devel plasma-activities-devel plasma-activities-stats-devel
+          libplasma-devel plasma-workspace-devel plasma-activities-devel libplasmaactivitiesstats-devel
           libksysguard-devel)
 elif command -v pacman &>/dev/null; then
     pkgs=(kvantum flatpak gcc cmake extra-cmake-modules qt6-base qt6-declarative
@@ -28,8 +28,8 @@ elif command -v apt-get &>/dev/null; then
           libkf6package-dev libkf6config-dev libkf6i18n-dev libkf6windowsystem-dev libkf6kio-dev
           libkf6iconthemes-dev libkf6itemmodels-dev libkf6service-dev libkf6xmlgui-dev
           libkf6jobwidgets-dev libkf6kcmutils-dev libkf6notifications-dev
-          libplasma-dev plasma-workspace-dev plasma-activities-dev plasma-activities-stats-dev
-          libksysguard-dev libdbusmenu-qt6-dev)
+          libplasma-dev plasma-workspace-dev libplasmaactivities-dev libplasmaactivitiesstats-dev
+          libksysguard-dev)
 else
     warn "Unknown package manager: install Kvantum, Flatpak and the build dependencies"
     warn "listed in the README (System Tray, Icon Tasks) yourself."

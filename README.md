@@ -260,8 +260,7 @@ sudo apt install cmake extra-cmake-modules \
   libkf6windowsystem-dev libkf6kio-dev libkf6iconthemes-dev \
   libkf6itemmodels-dev libkf6service-dev libkf6xmlgui-dev \
   libkf6jobwidgets-dev libkf6kcmutils-dev \
-  libplasma-dev plasma-workspace-dev \
-  libdbusmenu-qt6-dev
+  libplasma-dev plasma-workspace-dev
 ```
 
 #### Build and install
@@ -304,7 +303,7 @@ sudo dnf install gcc-c++ cmake extra-cmake-modules \
   kf6-kpackage-devel kf6-kconfig-devel kf6-ki18n-devel kf6-kcoreaddons-devel \
   kf6-kwindowsystem-devel kf6-kio-devel kf6-kservice-devel kf6-kxmlgui-devel \
   kf6-knotifications-devel \
-  plasma-activities-devel plasma-activities-stats-devel \
+  plasma-activities-devel libplasmaactivitiesstats-devel \
   libplasma-devel plasma-workspace-devel \
   libksysguard-devel
 ```
@@ -328,7 +327,7 @@ sudo apt install cmake extra-cmake-modules \
   libkf6windowsystem-dev libkf6kio-dev libkf6service-dev libkf6xmlgui-dev \
   libkf6notifications-dev \
   libplasma-dev plasma-workspace-dev \
-  plasma-activities-dev plasma-activities-stats-dev \
+  libplasmaactivities-dev libplasmaactivitiesstats-dev \
   libksysguard-dev
 ```
 
